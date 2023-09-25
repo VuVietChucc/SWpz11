@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Đăng ký</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+<body>
+<div class="wrapper">
+    <!-- Banner -->
+    <div class="banner-top">
+<!--        <div class="top_img">-->
+<!--            <img src="/images/banner-top/BxDqs2S.jpg">-->
+<!--            <img src="/images/banner-top/image-297-1685675888.jpg">-->
+<!--            <img src="/images/banner-top/image-84-1685675887.jpg">-->
+<!--            <img src="/images/banner-top/marvel_future_revolution.jpg">-->
+<!--            <img src="/images/banner-top/1.png">-->
+<!--            <img src="/images/banner-top/fairy.jpg">-->
+<!--            <img src="/images/banner-top/fairy1.jpg">-->
+<!--            <img src="/images/banner-top/dietquy.jpg">-->
+<!--        </div>-->
+<!--        <table>-->
+<!--            <tr th:each="images : ${topImages}">-->
+<!--                <td th:text="${images.public}">1</td>-->
+<!--                <td><a href="#" th:text="${message.title}">Title ...</a></td>-->
+<!--                <td th:text="${message.text}">Text ...</td>-->
+<!--            </tr>-->
+<!--        </table>-->
+        <div class="top_img">
+            <img src="/images/banner-top/BxDqs2S.jpg">
+            <img src="/images/banner-top/image-297-1685675888.jpg">
+            <img src="/images/banner-top/image-84-1685675887.jpg">
+            <img src="/images/banner-top/marvel_future_revolution.jpg">
+            <img src="/images/banner-top/1.png">
+            <img src="/images/banner-top/fairy.jpg">
+            <img src="/images/banner-top/fairy1.jpg">
+            <img src="/images/banner-top/dietquy.jpg">
+        </div>
+    </div>
+
+
+    <!-- Header section -->
+    <div class="header">
+        <div class="navbar">
+            <div class="logo">
+                <a th:href="@{/testFE/home}">
+                    <img th:src="@{/images/logo.png}" alt="logo">
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li class="dropdown">
+                        <a href="#">PHIM</a>
+                        <div class="dropdown-content">
+                            <a th:href="@{/testFE/list_film}">Phim Đang Chiếu</a>
+                            <a th:href="@{/testFE/list_film}">Phim Sắp Chiếu</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a th:href="@{/testFE/list_cinema}">RẠP</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">THÀNH VIÊN</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">VÉ CỦA TÔI</a>
+                    </li>
+                    <li class="dropdown">
+                        <a th:href="@{/testFE/book_sits}">ĐẶT VÉ</a>
+                    </li>
+                    <li class="dropdown" id="login-li">
+                        <a th:href="@{/testFE/login}">ĐĂNG NHẬP</a>
+                    </li>
+                    <li class="dropdown" id="name-li" style="display: none;">
+                        <div class="dropdown-content" id="name-li-a">
+                            <a th:href="@{/testFE/detail_user}">Đổi Mật Khẩu</a>
+                            <a th:href="@{/testFE/logout}">Đăng Xuất</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="search-form">
+                <form>
+                    <input type="text" placeholder="Tìm phim">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Main content -->
+    <form id="login-form" class="login" th:action="@{/testFE/regis}" method="post">
+        <p class="login__title">Đăng Ký Tài Khoản <br><span class="login-edition">Chào mừng đến với Cinema World</span></p>
+
+
+        <div class="field-wrap">
+            <input type='email' placeholder='Email' name='user-email' class="login__input">
+            <input type='password' placeholder='Mật khẩu' name='user-password' class="login__input">
+            <input type='text' placeholder='Họ và tên' name='user-fullname' class="login__input">
+            <input type='text' placeholder='User Name' name='user-name' class="login__input">
+        </div>
+        <br>
+        <div class="login__control">
+            <button type='submit' class="btn btn-warning">Đăng ký</button>
+            <div class="login__tracker form__tracker">
+                <label>Bạn đã có tài khoản?  </label> <a th:href="@{/testFE/login}">Đăng nhập</a>
+            </div>
+
+        </div>
+    </form>
+</div>
+<div class="footer">
+    <div class="credit">
+        <div class="credit-list">
+            <p style="color:orange">Copyright &copy; Cinema Booking Website 2023</p>
+        </div>
+
+        <div class="credit-list">
+            <div class="social-media">
+                <button><i class="fa fa-twitter"></i></button>
+                <button><i class="fa fa-facebook-f"></i></button>
+                <button><i class="fa fa-instagram"></i></button>
+            </div>
+        </div>
+        <div class="credit-list">
+            <p style="color:orange">Privacy Policy Terms of Use</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

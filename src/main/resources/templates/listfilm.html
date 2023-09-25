@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <title>Trang chủ</title>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+  <link th:href="@{/css/style.css}" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+
+<body>
+<div class="wrapper">
+  <!-- Banner -->
+  <div class="banner-top">
+    <div class="top_img">
+      <img src="/images/banner-top/BxDqs2S.jpg">
+      <img src="/images/banner-top/image-297-1685675888.jpg">
+      <img src="/images/banner-top/image-84-1685675887.jpg">
+      <img src="/images/banner-top/marvel_future_revolution.jpg">
+      <img src="/images/banner-top/1.png">
+      <img src="/images/banner-top/fairy.jpg">
+      <img src="/images/banner-top/fairy1.jpg">
+      <img src="/images/banner-top/dietquy.jpg">
+    </div>
+
+    <div class="top_img">
+      <img src="/images/banner-top/BxDqs2S.jpg">
+      <img src="/images/banner-top/image-297-1685675888.jpg">
+      <img src="/images/banner-top/image-84-1685675887.jpg">
+      <img src="/images/banner-top/marvel_future_revolution.jpg">
+      <img src="/images/banner-top/1.png">
+      <img src="/images/banner-top/fairy.jpg">
+      <img src="/images/banner-top/fairy1.jpg">
+      <img src="/images/banner-top/dietquy.jpg">
+    </div>
+  </div>
+
+
+  <!-- Header section -->
+  <div class="header">
+    <div class="navbar">
+      <div class="logo">
+        <a th:href="@{/testFE/home}">
+          <img th:src="@{/images/logo.png}" alt="logo">
+        </a>
+      </div>
+      <nav>
+        <ul>
+          <li class="dropdown">
+            <a href="#">PHIM</a>
+            <div class="dropdown-content">
+              <a th:href="@{/testFE/list_film}">Phim Đang Chiếu</a>
+              <a th:href="@{/testFE/list_film}">Phim Sắp Chiếu</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a th:href="@{/testFE/list_cinema}">RẠP</a>
+          </li>
+          <li class="dropdown">
+            <a href="#">THÀNH VIÊN</a>
+          </li>
+          <li class="dropdown">
+            <a href="#">VÉ CỦA TÔI</a>
+          </li>
+          <li class="dropdown">
+            <a th:href="@{/testFE/book_sits}">ĐẶT VÉ</a>
+          </li>
+          <li class="dropdown" id="login-li">
+            <a th:href="@{/testFE/login}">ĐĂNG NHẬP</a>
+          </li>
+          <li class="dropdown" id="name-li" style="display: none;">
+            <a th:text="${user.getFullName}" style="color: white">UserFullName</a>
+            <div class="dropdown-content" id="name-li-a">
+              <a th:href="@{/testFE/detail_user}">Đổi Mật Khẩu</a>
+              <a th:href="@{/testFE/logout}">Đăng Xuất</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <div class="search-form">
+        <form>
+          <input type="text" placeholder="Tìm phim">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <section class="container">
+
+    <div class="list-film-header">
+      <h3><img src="/images/img-button/tenlua1.png">Phim Đang Chiếu</h3><br>
+
+      <div class="row button-header">
+        <div class="col-md-4">
+          <form class="select-city" method='get'>
+            <button type="submit"><img src="/images/img-button/laban.png"></button>
+            <b>Thành Phố</b><select name="select_item" class="select__sort">
+            <option value="1"><b>Hà Nội</b></option>
+            <option value="2"><b>Đà Nẵng</b></option>
+            <option value="3"><b>Nghệ An</b></option>
+            <option value="4"><b>Hồ Chí Minh</b></option>
+          </select>
+
+          </form>
+        </div>
+
+
+
+        <div class="col-md-4">
+          <form class="select-cinema" method='get'>
+            <button type="submit"><img src="/images/img-button/cinema.png"></button>
+            <b>Rạp Phim </b><select name="select_item" class="select__sort">
+            <option value="1"><b>Rạp phim Quốc Gia</b></option>
+            <option value="2"><b>Beta Thanh Xuân</b></option>
+            <option value="3"><b>Aeomall Hà Đông</b></option>
+            <option value="4"><b>Rạp phim Mỹ Đình</b></option>
+          </select>
+
+          </form>
+        </div>
+
+
+
+        <div class="col-md-4">
+          <form class="select-genre" method='get'>
+            <button type="submit"><img src="/images/img-button/genre.png"></button>
+            <b>Thể Loại </b><select name="select_item" class="select__sort">
+            <option value="1"><b>Kinh dị</b></option>
+            <option value="2"><b>Phiêu lưu</b></option>
+            <option value="3"><b>Thám hiểm</b></option>
+            <option value="4"><b>Khoa học viễn tưởng</b></option>
+          </select>
+
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="row list-film">
+      <hr />
+      <div class="col-md-4 list-img">
+
+        <a href="details.html"> <img
+                src="https://inkythuatso.com/uploads/thumbnails/800/2022/06/hinh-nen-avenger-endgame-4k-cho-dien-thoai-1-04-10-13-45.jpg"></a>
+
+      </div>
+
+      <div class="col-md-8 list-phara">
+
+        <h4> <a href="details.html">End Game</a></h4><br>
+
+        <p class="phara"> <b>Thể loại:</b> Hành Động, Phiêu Lưu<br>
+          <b>Thời lượng:</b> 144 phút<br>
+          <b>Khởi chiếu:</b> 16-06-2023<br>
+          <b>Đạo diễn: </b> Viết Chúc<br>
+          <b>Diễn viên: </b> Robert Downey Jr.
+          Chris Evans
+          Mark Ruffalo
+          Chris Hemsworth
+          Scarlett Johansson
+          Jeremy Renner
+          Tom Hiddleston
+          Clark Gregg
+          Cobie Smulders
+          Stellan Skarsgård
+          Samuel L. Jackson<br>
+          <b>Ngôn ngữ: </b>Tiếng Nhật - Phụ đề tiếng việt<br>
+        </p>
+        <div class="buy-ticket">
+          <h5><a href="#">
+            <b>Mua Vé</b>
+            <i class="fa fa-shopping-cart" style="font-size:26px"></i>
+          </a></h5>
+        </div>
+
+      </div>
+
+
+
+      <hr />
+
+      <div class="col-md-4 list-img">
+        <a href="details.html"> <img
+                src="https://i0.wp.com/hapigo.vn/wp-content/uploads/2022/10/Optimized-hinh-nen-4k-cho-dien-thoai-42.jpg?resize\\u003d169%2C300\\u0026ssl\\u003d1"></a>
+
+      </div>
+
+      <div class="col-md-8 list-phara">
+        <h4> <a href="details.html">Đội Trưởng Mỹ</a></h4><br>
+
+        <p class="phara"> <b>Thể loại:</b> Hành Động, Phiêu Lưu<br>
+          <b>Thời lượng:</b> 144 phút<br>
+          <b>Khởi chiếu:</b> 16-06-2023<br>
+          <b>Đạo diễn: </b> Viết Chúc<br>
+          <b>Diễn viên: </b>
+          Robert Downey Jr.
+          Chris Evans
+          Mark Ruffalo
+          Chris Hemsworth
+          Scarlett Johansson
+          Jeremy Renner
+          Tom Hiddleston
+          Clark Gregg
+          Cobie Smulders
+          Stellan Skarsgård
+          Samuel L. Jackson<br>
+          <b>Ngôn ngữ: </b>Tiếng Nhật - Phụ đề tiếng việt<br>
+        </p>
+        <div class="buy-ticket">
+          <h5><a href="#">
+            <b>Mua Vé</b>
+            <i class="fa fa-shopping-cart" style="font-size:26px"></i>
+          </a></h5>
+        </div>
+
+      </div>
+
+      <hr />
+
+      <div class="col-md-4 list-img">
+        <a href="details.html"> <img
+                src="https://i.9mobi.vn/cf/Images/ma/2019/3/8/hinh-nen-captain-marvel-cho-dien-thoai-3.jpg"></a>
+
+      </div>
+
+      <div class="col-md-8 list-phara">
+
+        <h4> <a href="details.html">Caption Marvel</a></h4><br>
+        <p class="phara"> <b>Thể loại:</b> Hành Động, Phiêu Lưu<br>
+          <b>Thời lượng:</b> 144 phút<br>
+          <b>Khởi chiếu:</b> 16-06-2023<br>
+          <b>Đạo diễn: </b> Viết Chúc<br>
+          <b>Diễn viên: </b>
+          Robert Downey Jr.
+          Chris Evans
+          Mark Ruffalo
+          Chris Hemsworth
+          Scarlett Johansson
+          Jeremy Renner
+          Tom Hiddleston
+          Clark Gregg
+          Cobie Smulders
+          Stellan Skarsgård
+          Samuel L. Jackson<br>
+          <b>Ngôn ngữ: </b>Tiếng Nhật - Phụ đề tiếng việt<br>
+        </p>
+        <div class="buy-ticket">
+          <h5><a href="#">
+            <b>Mua Vé</b>
+            <i class="fa fa-shopping-cart" style="font-size:26px"></i>
+          </a></h5>
+        </div>
+
+      </div>
+
+      <hr />
+
+      <div class="col-md-4 list-img">
+        <a href="details.html"> <img
+                src="https://wallpaper.dog/large/20461264.jpg"></a>
+
+
+      </div>
+
+      <div class="col-md-8 list-phara">
+
+        <h4> <a href="details.html">The End</a></h4><br>
+        <p class="phara"> <b>Thể loại:</b> Hành Động, Phiêu Lưu<br>
+          <b>Thời lượng:</b> 144 phút<br>
+          <b>Khởi chiếu:</b> 16-06-2023<br>
+          <b>Đạo diễn: </b> Viết Chúc<br>
+          <b>Diễn viên: </b>
+          Robert Downey Jr.
+          Chris Evans
+          Mark Ruffalo
+          Chris Hemsworth
+          Scarlett Johansson
+          Jeremy Renner
+          Tom Hiddleston
+          Clark Gregg
+          Cobie Smulders
+          Stellan Skarsgård
+          Samuel L. Jackson<br>
+          <b>Ngôn ngữ: </b>Tiếng Nhật - Phụ đề tiếng việt<br>
+        </p>
+        <div class="buy-ticket">
+          <h5><a href="#">
+            <b>Mua Vé</b>
+            <i class="fa fa-shopping-cart" style="font-size:26px"></i>
+          </a></h5>
+        </div>
+
+      </div>
+
+
+      <hr />
+
+    </div>
+
+    <form>
+      <div class="row button-footer">
+        <div class="col-md-6 but backw">
+          <button> <i class="fa fa-caret-square-o-left" style="font-size:36px"></i> <b> Quay lại</b>
+          </button>
+        </div>
+        <div class="col-md-6 but fontw">
+          <button> <i class="fa fa-caret-square-o-right" style="font-size:36px"></i> <b> Tiếp theo</b>
+          </button>
+        </div>
+      </div>
+    </form>
+
+
+
+  </section>
+</div>
+
+
+<div class="footer">
+  <div class="credit">
+    <div class="credit-list">
+      <p style="color:orange">Copyright &copy; Cinema Booking Website 2023</p>
+    </div>
+
+    <div class="credit-list">
+      <div class="social-media">
+        <button><i class="fa fa-twitter"></i></button>
+        <button><i class="fa fa-facebook-f"></i></button>
+        <button><i class="fa fa-instagram"></i></button>
+      </div>
+    </div>
+    <div class="credit-list">
+      <p style="color:orange">Privacy Policy Terms of Use</p>
+    </div>
+  </div>
+</div>
+
+<script th:inline="javascript">
+  // JavaScript code
+  document.addEventListener("DOMContentLoaded", function () {
+    // Check user's login status
+    var isLoggedIn = [[${isLoggedIn}]] /* Your logic to check if the user is logged in */;
+
+    // Get the navbar list and login elements
+    var navbarList = document.getElementById("navbar-list");
+    var loginLi = document.getElementById("login-li");
+    var nameLi = document.getElementById("name-li");
+    var nameLiA = document.getElementById("name-li-a");
+
+    // Toggle the visibility of navbar elements based on login status
+    if (isLoggedIn) {
+      loginLi.style.display = "none";
+      nameLi.style.display = "inline-block";
+      nameLiA.style.display = "none";
+    } else {
+      loginLi.style.display = "inline";
+      nameLi.style.display = "none";
+    }
+
+    // Add event listener to toggle the display of "name-li-a" on hover
+    nameLi.addEventListener("mouseover", function () {
+      nameLiA.style.display = "block";
+    });
+
+    nameLi.addEventListener("mouseout", function () {
+      nameLiA.style.display = "none";
+    });
+  });
+
+</script>
+</body>
+
+</html>

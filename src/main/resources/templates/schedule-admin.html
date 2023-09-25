@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <title>Admin - Schedule</title>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+  <link th:href="@{/css_admin/styleAdmin.css}" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+
+<body>
+<div class="wrapper">
+  <!-- Banner -->
+  <!-- Header section -->
+  <div class="header">
+    <div class="navbar">
+
+      <nav>
+        <ul>
+          <li class="dropdown">
+            <a  th:href="@{admin}">QUẢN TRỊ VIÊN</a>
+
+          </li>
+          <li class="dropdown">
+            <a th:href="@{customerAdmin}">TÀI KHOẢN</a>
+
+          </li>
+          <li class="dropdown">
+            <a th:href="@{list_film_admin}">DANH SÁCH FILM</a>
+          </li>
+          <li class="dropdown">
+            <a th:href="@{ticket_admin}">VÉ</a>
+          </li>
+          <li class="dropdown">
+            <a th:href="@{booking_admin}">ĐẶT CHỖ</a>
+          </li>
+          <li class="dropdown">
+            <a th:href="@{room_admin}">PHÒNG</a>
+          </li>
+          <li class="dropdown">
+            <a style="color: aqua;" th:href="@{schedule_admin}">LỊCH TRÌNH</a>
+          </li>
+          <li class="dropdown">
+            <a th:href="@{seat_admin}">GHẾ</a>
+          </li>
+          <li class="dropdown">
+            <a th:href="@{payment_admin}">ĐÃ THANH TOÁN</a>
+          </li>
+          <li class="dropdown">
+            <a th:href="@{slot_admin}">SLOT</a>
+          </li>
+          <li class="dropdown">
+            <a th:href="@{member_admin}">THÀNH VIÊN</a>
+          </li>
+          <li class="dropdown">
+            <a th:href="@{theater_admin}">RẠP</a>
+          </li>
+        </ul>
+      </nav>
+
+    </div>
+  </div>
+</div>
+
+  <!-- Main content -->
+
+  <div class="titles">
+    <p>LỊCH TRÌNH</p>
+  </div>
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>Schedule_id</th>
+      <th>Film_id</th>
+      <th>Slot_id</th>
+      <th>Room_id</th>
+      <th>theater_id</th>
+      <th>Schedule_date</th>
+      <th>price</th>
+
+      <th></th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>John</td>
+      <td>Doe</td>
+      <td>John</td>
+      <td>Doe</td>
+      <td>John</td>
+      <td>Doe</td>
+      <td>Doe</td>
+
+      <td><a href="index.html">Edit</a>|
+        <a href="index.html">Detail</a> |
+        <a href="index.html">Delete</a>
+      </td>
+    </tr>
+    <tr>
+      <td>John</td>
+      <td>Doe</td>
+      <td>John</td>
+      <td>Doe</td>
+      <td>John</td>
+      <td>Doe</td>
+      <td>Doe</td>
+      <td><a href="index.html">Edit</a>|
+        <a href="index.html">Detail</a> |
+        <a href="index.html">Delete</a>
+      </td>
+    </tr>
+    <tr>
+      <td>John</td>
+      <td>Doe</td>
+      <td>John</td>
+      <td>Doe</td>
+      <td>John</td>
+      <td>Doe</td>
+      <td>Doe</td>
+      <td><a href="index.html">Edit</a>|
+        <a href="index.html">Detail</a> |
+        <a href="index.html">Delete</a>
+      </td>
+    </tr>
+
+    </tbody>
+  </table>
+  <a th:href="@{create_schedule_admin}" class="create">Create</a>
+</div> <!-- content -->
+
+</body>
+
+</html>

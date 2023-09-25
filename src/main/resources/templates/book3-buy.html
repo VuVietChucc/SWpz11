@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>AMovie - Booking step 3</title>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+  <link th:href="@{/css/style.css}" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+<body>
+<div class="wrapper">
+  <!-- Banner -->
+  <div class="banner-top">
+    <div class="top_img">
+      <img src="/images/banner-top/BxDqs2S.jpg">
+      <img src="/images/banner-top/image-297-1685675888.jpg">
+      <img src="/images/banner-top/image-84-1685675887.jpg">
+      <img src="/images/banner-top/marvel_future_revolution.jpg">
+      <img src="/images/banner-top/1.png">
+      <img src="/images/banner-top/fairy.jpg">
+      <img src="/images/banner-top/fairy1.jpg">
+      <img src="/images/banner-top/dietquy.jpg">
+    </div>
+
+    <div class="top_img">
+      <img src="/images/banner-top/BxDqs2S.jpg">
+      <img src="/images/banner-top/image-297-1685675888.jpg">
+      <img src="/images/banner-top/image-84-1685675887.jpg">
+      <img src="/images/banner-top/marvel_future_revolution.jpg">
+      <img src="/images/banner-top/1.png">
+      <img src="/images/banner-top/fairy.jpg">
+      <img src="/images/banner-top/fairy1.jpg">
+      <img src="/images/banner-top/dietquy.jpg">
+    </div>
+  </div>
+
+
+  <!-- Header section -->
+  <div class="header">
+    <div class="navbar">
+      <div class="logo">
+        <a th:href="@{/testFE/home}">
+          <img th:src="@{/images/logo.png}" alt="logo">
+        </a>
+      </div>
+      <nav>
+        <ul>
+          <li class="dropdown">
+            <a href="#">PHIM</a>
+            <div class="dropdown-content">
+              <a th:href="@{/testFE/list_film}">Phim Đang Chiếu</a>
+              <a th:href="@{/testFE/list_film}">Phim Sắp Chiếu</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a th:href="@{/testFE/list_cinema}">RẠP</a>
+          </li>
+          <li class="dropdown">
+            <a href="#">THÀNH VIÊN</a>
+          </li>
+          <li class="dropdown">
+            <a href="#">VÉ CỦA TÔI</a>
+          </li>
+          <li class="dropdown">
+            <a th:href="@{/testFE/book_sits}">ĐẶT VÉ</a>
+          </li>
+          <li class="dropdown" id="login-li">
+            <a th:href="@{/testFE/login}">ĐĂNG NHẬP</a>
+          </li>
+          <li class="dropdown" id="name-li" style="display: none;">
+            <a style="color: white">UserFullName</a>
+            <div class="dropdown-content" id="name-li-a">
+              <a th:href="@{/testFE/detail_user}">Đổi Mật Khẩu</a>
+              <a th:href="@{/testFE/logout}">Đăng Xuất</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <div class="search-form">
+        <form>
+          <input type="text" placeholder="Tìm phim">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <section class="container">
+    <div class="order-container">
+      <div class="order">
+        <img class="order__images" alt='' th:src="@{/images/tickets.png}">
+        <p class="order__title">Book a ticket <br><span class="order__descript">and have fun movie
+                            time</span></p>
+        <div class="order__control">
+<!--          <a th:href="#" class="order__control-btn active">Purchase</a>-->
+          <a th:href="book3-reserve.html" class="order__control-btn">Reserve</a>
+        </div>
+      </div>
+    </div>
+    <div class="order-step-area">
+      <div class="order-step first--step order-step--disable ">1. What &amp; Where &amp; When</div>
+      <div class="order-step second--step order-step--disable">2. Choose a sit</div>
+      <div class="order-step third--step">3. Check out</div>
+    </div>
+
+    <div class="col-sm-12">
+      <div class="checkout-wrapper">
+        <h2 class="page-heading">price</h2>
+        <ul class="book-result">
+          <li class="book-result__item">Tickets: <span class="book-result__count booking-ticket">3</span>
+          </li>
+          <li class="book-result__item">One item price: <span
+                  class="book-result__count booking-price">$20</span></li>
+          <li class="book-result__item">Total: <span class="book-result__count booking-cost">$60</span>
+          </li>
+        </ul>
+
+        <h2 class="page-heading">Choose payment method</h2>
+
+        <div class="payment">
+          <button class="tablinks" onclick="open_Code(event, 'vnpay')">
+            <img alt='' th:src="@{/images/payment/vnpay.png}">
+          </button>
+          <button class="tablinks" onclick="open_Code(event, 'zalo')">
+            <img alt='' th:src="@{/images/payment/zalo.png}">
+          </button>
+          <button class="tablinks" onclick="open_Code(event, 'bank')">
+            <img alt='' th:src="@{/images/payment/pay7.png}">
+          </button>
+        </div>
+        <div id="vnpay" class="tabcontent col-md-3" hidden="true">
+          <div class="image-container">
+            <img alt='' th:src="@{/images/vnpay.png}" class="pay-image">
+            <span onclick="this.parentElement.style.display='none'">x</span>
+          </div>
+        </div>
+        <div id="zalo" class="tabcontent col-md-3" hidden="true">
+          <div class="image-container">
+            <img alt='' th:src="@{/images/zalopay.png}" class="pay-image">
+          </div>
+        </div>
+
+        <div id="bank" class="tabcontent col-md-3" hidden="true">
+          <div class="image-container">
+            <img alt='' th:src="@{/images/bank.png}" class="pay-image">
+          </div>
+        </div>
+
+        <h2 class="page-heading">Contact information</h2>
+
+        <form id='contact-info' method='post' novalidate="" class="form contact-info">
+          <div class="contact-info__field contact-info__field-mail">
+            <input type='email' name='user-mail' placeholder='Your email' class="form__mail">
+          </div>
+          <div class="contact-info__field contact-info__field-tel">
+            <input type='tel' name='user-tel' placeholder='Phone number' class="form__mail">
+          </div>
+        </form>
+
+
+      </div>
+
+      <div class="order">
+        <a th:href="@{/testFE/book_sits_final}" class="btn btn-md btn--warning btn--wide">purchase</a>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <div class="clearfix"></div>
+
+  <div class="booking-pagination">
+    <a th:href="@{testFE/book_sits}" class="booking-pagination__prev">
+      <p class="arrow__text arrow--prev">prev step</p>
+      <span class="arrow__info">choose a sit</span>
+    </a>
+    <a th:href="@{/testFE/book_sits_final}" class="booking-pagination__next hide--arrow">
+      <p class="arrow__text arrow--next">next step</p>
+      <span class="arrow__info"></span>
+    </a>
+  </div>
+
+  <div class="clearfix"></div>
+
+  <div class="footer">
+    <div class="credit">
+      <div class="credit-list">
+        <p style="color:orange">Copyright &copy; Cinema Booking Website 2023</p>
+      </div>
+
+      <div class="credit-list">
+        <div class="social-media">
+          <button><i class="fa fa-twitter"></i></button>
+          <button><i class="fa fa-facebook-f"></i></button>
+          <button><i class="fa fa-instagram"></i></button>
+        </div>
+      </div>
+      <div class="credit-list">
+        <p style="color:orange">Privacy Policy Terms of Use</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- JavaScript-->
+<script>
+  function open_Code(evt, type) {
+    var tabcontent = document.getElementsByClassName("tabcontent");
+    var tablinks = document.getElementsByClassName("tablinks");
+
+    for (var i = 0; i < tabcontent.length; i++) {
+      if (tabcontent[i].id === type) {
+        if (tabcontent[i].style.display === "block") {
+          tabcontent[i].style.display = "none";
+          tablinks[i].classList.remove("active");
+        } else {
+          tabcontent[i].style.display = "block";
+          tablinks[i].classList.add("active");
+        }
+      } else {
+        tabcontent[i].style.display = "none";
+        tablinks[i].classList.remove("active");
+      }
+    }
+  }
+</script>
+
+</body>
+</html>
